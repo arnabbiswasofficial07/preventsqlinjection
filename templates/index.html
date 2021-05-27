@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Index </title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+             </div></br></br></br>
+                <h1 class="welcome">
+                     Hi {{session.username}}!!</br></br>
+                </h1>
+<!--              </br></br></br>-->
+                <table id="customers">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                    {% for user in details %}
+                    <tr>
+                        <td>{{user[1]}}</td>
+                        <td>{{user[3]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+              </br>
+              </br>
+
+                <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+          </div>
+        </div>
+    </body>
+</html>
